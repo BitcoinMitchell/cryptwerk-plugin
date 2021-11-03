@@ -19,11 +19,7 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">=7.3.0",
-    "ext-PDO": "*",
-    "ext-curl": "*",
-    "ext-gd": "*",
     "ext-intl": "*",
-    "ext-json": "*",
     "ext-mbstring": "*",
     "ext-simplexml": "*"
   },
