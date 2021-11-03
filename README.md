@@ -23,9 +23,9 @@ Please ensure that you meet the following requirements before installing this pl
 ## Usage
 
 1. [Download the latest CryptWerk plugin](https://github.com/bitcoinmitchell/cryptwerk-plugin/releases).
-2. Go to your PrestaShop store and upload the zip you just downloaded via `Modules > Module Manager > Upload a module`.
-4. Click on `Catalog -> CryptWerk Feed`, which will redirect you to your proper `feed` URL, copy that.
-5. Setup the sync within CryptWerk (`https://cryptwerk.com/company/YOUR-COMPANY/market-sync/`) using `XML`.
+2. Go to your PrestaShop store and upload the zip via `Modules > Module Manager > Upload a module`.
+4. Click on `Catalog -> CryptWerk Feed`, which will redirect you to your proper `feed` URL.
+5. Setup product sync within CryptWerk `Dashboard -> Synchronization & Import` using the `XML` type.
 6. Done (now you just need to await moderator approval).
 
 ## Versioning
