@@ -29,7 +29,7 @@ class CryptWerk extends \Module
 	{
 		$this->name                   = 'cryptwerk';
 		$this->tab                    = 'administration';
-		$this->version                = '0.3.2';
+		$this->version                = '0.3.4';
 		$this->author                 = 'BitcoinMitchell';
 		$this->ps_versions_compliancy = ['min' => '1.7.7', 'max' => _PS_VERSION_];
 

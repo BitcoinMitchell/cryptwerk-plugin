@@ -45,9 +45,9 @@ class Factory
 			if (!empty($product->meta_description)) {
 				$xmlProduct->addChild('description', strip_tags($product->meta_description));
 			} elseif (!empty($product->description_short)) {
-				$xmlProduct->addChild('title', strip_tags($product->description_short));
+				$xmlProduct->addChild('description', strip_tags($product->description_short));
 			} elseif (!empty($product->description)) {
-				$xmlProduct->addChild('title', strip_tags($product->description));
+				$xmlProduct->addChild('description', strip_tags($product->description));
 			}
 
 			$xmlCategories = $xmlProduct->addChild('categories');
