@@ -5,7 +5,7 @@
 [![GitHub License](https://img.shields.io/github/license/bitcoinmitchell/cryptwerk-plugin?color=brightgreen&style=flat-square)](https://github.com/bitcoinmitchell/cryptwerk-plugin/blob/master/LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors-anon/bitcoinmitchell/cryptwerk-plugin?style=flat-square)](https://github.com/bitcoinmitchell/cryptwerk-plugin/graphs/contributors)
 
-[![PrestaShop module version](https://img.shields.io/badge/module%20version-0.3.2-brightgreen?style=flat-square)](https://github.com/bitcoinmitchell/cryptwerk-plugin/releases)
+[![PrestaShop module version](https://img.shields.io/badge/module%20version-0.3.3-brightgreen?style=flat-square)](https://github.com/bitcoinmitchell/cryptwerk-plugin/releases)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/bitcoinmitchell/cryptwerk-plugin?sort=semver&style=flat-square)](https://github.com/bitcoinmitchell/cryptwerk-plugin/releases)
 [![GitHub all releases](https://img.shields.io/github/downloads/bitcoinmitchell/cryptwerk-plugin/total?style=flat-square)](https://github.com/bitcoinmitchell/cryptwerk-plugin/releases)
 

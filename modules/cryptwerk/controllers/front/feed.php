@@ -1,6 +1,5 @@
 <?php
 
-use CryptWerk\Component\HttpFoundation\XmlResponse;
 use CryptWerk\Factory;
 
 /** @noinspection AutoloadingIssuesInspection */
