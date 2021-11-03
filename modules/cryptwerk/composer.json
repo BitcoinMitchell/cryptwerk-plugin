@@ -1,0 +1,47 @@
+{
+  "name": "bitcoinmitchell/cryptwerk-plugin",
+  "description": "CryptWerk feed plugin for PrestaShop",
+  "type": "prestashop-module",
+  "keywords": [
+    "prestashop",
+    "plugin",
+    "feed",
+    "ecommerce",
+    "bitcoin",
+    "cryptwerk"
+  ],
+  "homepage": "https://github.com/bitcoinmitchell/cryptwerk-plugin",
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/bitcoinmitchell/cryptwerk-plugin/issues",
+    "source": "https://github.com/bitcoinmitchell/cryptwerk-plugin"
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.3.0",
+    "ext-PDO": "*",
+    "ext-curl": "*",
+    "ext-gd": "*",
+    "ext-intl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-simplexml": "*"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "CryptWerk\\": "src/"
+    },
+    "classmap": [
+      "cryptwerk.php"
+    ],
+    "exclude-from-classmap": []
+  },
+  "config": {
+    "preferred-install": "dist",
+    "prepend-autoloader": false,
+    "sort-packages": true
+  }
+}

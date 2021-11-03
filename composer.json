@@ -1,0 +1,69 @@
+{
+  "name": "bitcoinmitchell/cryptwerk-plugin",
+  "type": "prestashop-module",
+  "description": "Cryptwerk feed plugin for PrestaShop",
+  "keywords": [
+    "prestashop",
+    "plugin",
+    "feed",
+    "ecommerce",
+    "bitcoin",
+    "cryptwerk"
+  ],
+  "homepage": "https://github.com/bitcoinmitchell/cryptwerk-plugin",
+  "license": "MIT",
+  "require": {
+    "php": ">=7.3.0",
+    "ext-PDO": "*",
+    "ext-curl": "*",
+    "ext-dom": "*",
+    "ext-fileinfo": "*",
+    "ext-gd": "*",
+    "ext-iconv": "*",
+    "ext-intl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-simplexml": "*",
+    "ext-zip": "*",
+    "composer/installers": "^v1.9.0"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+    "ergebnis/composer-normalize": "^2.15.0",
+    "friendsofphp/php-cs-fixer": "^v2.19.2",
+    "johnkary/phpunit-speedtrap": "^v3.2.0",
+    "pheromone/phpcs-security-audit": "^2.0",
+    "phpspec/prophecy-phpunit": "^v2.0.1",
+    "prestashop/prestashop": "dev-develop",
+    "roave/security-advisories": "dev-latest",
+    "slevomat/coding-standard": "^6.4.1",
+    "squizlabs/php_codesniffer": "^3.6.1",
+    "symfony/phpunit-bridge": "^v3.4.47"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "prepend-autoloader": false,
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "CryptWerk\\": "modules/cryptwerk/src"
+    },
+    "classmap": [
+      "modules/cryptwerk/cryptwerk.php"
+    ]
+  },
+  "minimum-stability": "stable",
+  "scripts": {
+    "post-install-cmd": [
+      "@install-codestandards"
+    ],
+    "install-codestandards": [
+      "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
+    ]
+  },
+  "support": {
+    "issues": "https://github.com/bitcoinmitchell/cryptwerk-plugin/issues",
+    "source": "https://github.com/bitcoinmitchell/cryptwerk-plugin"
+  }
+}

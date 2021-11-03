@@ -1,0 +1,7 @@
+admin_cryptwerk_configure:
+  path: /cryptwerk/configure
+  methods: [GET]
+  defaults:
+    _controller: 'CryptWerk\Controller\Admin\Improve\Catalog\ConfigureController::configureAction'
+    # _legacy_controller is used to manage permissions
+    _legacy_controller: AdminCryptWerkConfigure
