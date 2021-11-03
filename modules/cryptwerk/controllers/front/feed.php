@@ -35,6 +35,11 @@ class CryptWerkFeedModuleFrontController extends \ModuleFrontController
 	 */
 	public function display(): void
 	{
-		echo new XmlResponse($this->factory->build()->asXML());
+		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+		header('Content-type: text/xml');
+		header('Pragma: public');
+		header('Expires: 0');
+
+		echo $this->factory->build()->asXML();
 	}
 }
