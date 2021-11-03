@@ -23,8 +23,12 @@ class Factory
 
 		$products = \Product::getProducts($id_lang, 0, 0, 'id_product', 'ASC', false, true);
 		foreach ($products as $item) {
+			// If the product is out of stock, don't even bother
+			if (0 === \StockAvailable::getQuantityAvailableByProduct($item['id_product'], 0)) {
+				continue;
+			}
+
 			$product = new \Product($item['id_product'], true, $id_lang, $id_shop);
-			$product->loadStockData();
 
 			$xmlProduct = $xml->addChild('product');
 			$xmlProduct->addChild('id', $product->id);
