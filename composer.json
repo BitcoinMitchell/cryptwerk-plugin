@@ -1,7 +1,8 @@
 {
   "name": "bitcoinmitchell/cryptwerk-plugin",
-  "type": "prestashop-module",
   "description": "Cryptwerk feed plugin for PrestaShop",
+  "license": "MIT",
+  "type": "prestashop-module",
   "keywords": [
     "prestashop",
     "plugin",
@@ -11,7 +12,10 @@
     "cryptwerk"
   ],
   "homepage": "https://github.com/bitcoinmitchell/cryptwerk-plugin",
-  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/bitcoinmitchell/cryptwerk-plugin/issues",
+    "source": "https://github.com/bitcoinmitchell/cryptwerk-plugin"
+  },
   "require": {
     "php": ">=7.3.0",
     "ext-PDO": "*",
@@ -30,21 +34,89 @@
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "ergebnis/composer-normalize": "^2.15.0",
+    "ezyang/htmlpurifier": "dev-master as v4.14.0",
     "friendsofphp/php-cs-fixer": "^v2.19.2",
     "johnkary/phpunit-speedtrap": "^v3.2.0",
     "pheromone/phpcs-security-audit": "^2.0",
     "phpspec/prophecy-phpunit": "^v2.0.1",
+    "prestashop/laminas-code-lts": "dev-4.5-lts",
     "prestashop/prestashop": "dev-develop",
     "roave/security-advisories": "dev-latest",
     "slevomat/coding-standard": "^6.4.1",
     "squizlabs/php_codesniffer": "^3.6.1",
     "symfony/phpunit-bridge": "^v3.4.47"
   },
-  "config": {
-    "preferred-install": "dist",
-    "prepend-autoloader": false,
-    "sort-packages": true
+  "replace": {
+    "prestashop/blockreassurance": "^5.0",
+    "prestashop/blockwishlist": "^2.1.2",
+    "prestashop/classic": "^2.0.0-beta",
+    "prestashop/contactform": "^v4.3.0",
+    "prestashop/dashactivity": "^2",
+    "prestashop/dashgoals": "^2",
+    "prestashop/dashproducts": "^2",
+    "prestashop/dashtrends": "^2",
+    "prestashop/gamification": "^v2.4.0",
+    "prestashop/graphnvd3": "^2",
+    "prestashop/gridhtml": "^2",
+    "prestashop/gsitemap": "^4",
+    "prestashop/pagesnotfound": "^2",
+    "prestashop/productcomments": "^5.0",
+    "prestashop/ps_banner": "^2",
+    "prestashop/ps_bestsellers": "^1.0",
+    "prestashop/ps_brandlist": "^1.0",
+    "prestashop/ps_cashondelivery": "^2.0",
+    "prestashop/ps_categoryproducts": "^1.0",
+    "prestashop/ps_categorytree": "^2",
+    "prestashop/ps_checkpayment": "^2",
+    "prestashop/ps_contactinfo": "^3.2",
+    "prestashop/ps_crossselling": "^2.0",
+    "prestashop/ps_currencyselector": "^2",
+    "prestashop/ps_customeraccountlinks": "^3",
+    "prestashop/ps_customersignin": "^2",
+    "prestashop/ps_customtext": "^4",
+    "prestashop/ps_dataprivacy": "^2.0",
+    "prestashop/ps_distributionapiclient": "^1.0",
+    "prestashop/ps_emailalerts": "^v2.0",
+    "prestashop/ps_emailsubscription": "^v2.7.0",
+    "prestashop/ps_facetedsearch": "^v3.7.1",
+    "prestashop/ps_faviconnotificationbo": "^2",
+    "prestashop/ps_featuredproducts": "^2",
+    "prestashop/ps_googleanalytics": "^v4.0",
+    "prestashop/ps_imageslider": "^3",
+    "prestashop/ps_languageselector": "^2",
+    "prestashop/ps_linklist": "^5",
+    "prestashop/ps_mainmenu": "^2",
+    "prestashop/ps_newproducts": "^1.0",
+    "prestashop/ps_searchbar": "^2",
+    "prestashop/ps_sharebuttons": "^2",
+    "prestashop/ps_shoppingcart": "^2",
+    "prestashop/ps_socialfollow": "^2",
+    "prestashop/ps_specials": "^1.0",
+    "prestashop/ps_supplierlist": "^1.0",
+    "prestashop/ps_themecusto": "^1",
+    "prestashop/ps_viewedproduct": "^1.2",
+    "prestashop/ps_wirepayment": "^2",
+    "prestashop/psgdpr": "^1.0",
+    "prestashop/statsbestcategories": "^2",
+    "prestashop/statsbestcustomers": "^2",
+    "prestashop/statsbestmanufacturers": "^2",
+    "prestashop/statsbestproducts": "^2",
+    "prestashop/statsbestsuppliers": "^2",
+    "prestashop/statsbestvouchers": "^2",
+    "prestashop/statscarrier": "^2",
+    "prestashop/statscatalog": "^2",
+    "prestashop/statscheckup": "^2",
+    "prestashop/statsdata": "^2",
+    "prestashop/statsforecast": "^2",
+    "prestashop/statsnewsletter": "^2",
+    "prestashop/statspersonalinfos": "^2",
+    "prestashop/statsproduct": "^2",
+    "prestashop/statsregistrations": "^2",
+    "prestashop/statssales": "^2",
+    "prestashop/statssearch": "^2",
+    "prestashop/statsstock": "^2"
   },
+  "minimum-stability": "stable",
   "autoload": {
     "psr-4": {
       "CryptWerk\\": "modules/cryptwerk/src"
@@ -53,7 +125,17 @@
       "modules/cryptwerk/cryptwerk.php"
     ]
   },
-  "minimum-stability": "stable",
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "composer/package-versions-deprecated": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "ergebnis/composer-normalize": true
+    },
+    "preferred-install": "dist",
+    "prepend-autoloader": false,
+    "sort-packages": true
+  },
   "scripts": {
     "post-install-cmd": [
       "@install-codestandards"
@@ -61,9 +143,5 @@
     "install-codestandards": [
       "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
     ]
-  },
-  "support": {
-    "issues": "https://github.com/bitcoinmitchell/cryptwerk-plugin/issues",
-    "source": "https://github.com/bitcoinmitchell/cryptwerk-plugin"
   }
 }
