@@ -44,7 +44,7 @@
     "roave/security-advisories": "dev-latest",
     "slevomat/coding-standard": "^6.4.1",
     "squizlabs/php_codesniffer": "^3.6.1",
-    "symfony/phpunit-bridge": "^v3.4.47"
+    "symfony/phpunit-bridge": "3.4.47"
   },
   "replace": {
     "prestashop/blockreassurance": "^5.0",
