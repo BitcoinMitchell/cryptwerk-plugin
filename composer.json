@@ -29,21 +29,21 @@
     "ext-mbstring": "*",
     "ext-simplexml": "*",
     "ext-zip": "*",
-    "composer/installers": "^v1.9.0"
+    "composer/installers": "1.12.0"
   },
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-    "ergebnis/composer-normalize": "^2.15.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "0.7.2",
+    "ergebnis/composer-normalize": "2.20.0",
     "ezyang/htmlpurifier": "dev-master as v4.14.0",
-    "friendsofphp/php-cs-fixer": "^v2.19.2",
-    "johnkary/phpunit-speedtrap": "^v3.2.0",
-    "pheromone/phpcs-security-audit": "^2.0",
-    "phpspec/prophecy-phpunit": "^v2.0.1",
+    "friendsofphp/php-cs-fixer": "2.19.3",
+    "johnkary/phpunit-speedtrap": "3.3.0",
+    "pheromone/phpcs-security-audit": "2.0.1",
+    "phpspec/prophecy-phpunit": "2.0.1",
     "prestashop/laminas-code-lts": "dev-4.5-lts",
     "prestashop/prestashop": "dev-develop",
     "roave/security-advisories": "dev-latest",
-    "slevomat/coding-standard": "^6.4.1",
-    "squizlabs/php_codesniffer": "^3.6.1",
+    "slevomat/coding-standard": "6.4.1",
+    "squizlabs/php_codesniffer": "3.7.1",
     "symfony/phpunit-bridge": "^v3.4.47"
   },
   "replace": {
