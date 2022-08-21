@@ -36,7 +36,7 @@
     "ergebnis/composer-normalize": "^2.15.0",
     "ezyang/htmlpurifier": "dev-master as v4.14.0",
     "friendsofphp/php-cs-fixer": "^v2.19.2",
-    "johnkary/phpunit-speedtrap": "^v3.2.0",
+    "johnkary/phpunit-speedtrap": "^v4.0.0",
     "pheromone/phpcs-security-audit": "^2.0",
     "phpspec/prophecy-phpunit": "^v2.0.1",
     "prestashop/laminas-code-lts": "dev-4.5-lts",
