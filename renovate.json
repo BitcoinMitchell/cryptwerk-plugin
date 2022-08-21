@@ -4,5 +4,8 @@
     "config:base",
     ":preserveSemverRanges"
   ],
-  "rebaseWhen": "behind-base-branch"
+  "rebaseWhen": "behind-base-branch",
+  "constraints": {
+    "php": "7.4"
+  }
 }
