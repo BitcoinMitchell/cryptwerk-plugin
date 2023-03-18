@@ -32,7 +32,7 @@
     "composer/installers": "^v1.9.0"
   },
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
     "ergebnis/composer-normalize": "^2.20",
     "ezyang/htmlpurifier": "dev-master as v4.14.0",
     "friendsofphp/php-cs-fixer": "^v2.19.2",
