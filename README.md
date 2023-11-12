@@ -1,7 +1,7 @@
 # CryptWerk Plugin
 
-[![Maintained](https://img.shields.io/maintenance/yes/2022?style=flat-square)](https://github.com/bitcoinmitchell/cryptwerk-plugin/pulse)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/bitcoinmitchell/cryptwerk-plugin/Validate/master?style=flat-square)](https://github.com/bitcoinmitchell/cryptwerk-plugin/actions)
+[![Maintained](https://img.shields.io/maintenance/yes/2023?style=flat-square)](https://github.com/bitcoinmitchell/cryptwerk-plugin/pulse)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/bitcoinmitchell/cryptwerk-plugin/validate.yml?style=flat-square)](https://github.com/bitcoinmitchell/cryptwerk-plugin/actions)
 [![GitHub License](https://img.shields.io/github/license/bitcoinmitchell/cryptwerk-plugin?color=brightgreen&style=flat-square)](https://github.com/bitcoinmitchell/cryptwerk-plugin/blob/master/LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors-anon/bitcoinmitchell/cryptwerk-plugin?style=flat-square)](https://github.com/bitcoinmitchell/cryptwerk-plugin/graphs/contributors)
 
