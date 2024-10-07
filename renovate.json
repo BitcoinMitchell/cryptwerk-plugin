@@ -6,6 +6,6 @@
   ],
   "rebaseWhen": "behind-base-branch",
   "constraints": {
-    "php": "7.4"
+    "php": "8.0"
   }
 }
