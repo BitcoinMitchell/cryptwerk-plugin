@@ -29,9 +29,6 @@ class CryptWerkFeedModuleFrontController extends \ModuleFrontController
 		$this->factory = new Factory();
 	}
 
-	/**
-	 * {@inheritdoc}
-	 */
 	public function display(): void
 	{
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');

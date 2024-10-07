@@ -34,36 +34,36 @@ class Factory
 			$xmlProduct->addChild('id', $product->id);
 
 			if (!empty($product->meta_title)) {
-				$xmlProduct->addChild('title', strip_tags($product->meta_title));
+				$xmlProduct->addChild('title', \strip_tags($product->meta_title));
 			} elseif (!empty($product->name)) {
-				$xmlProduct->addChild('title', strip_tags($product->name));
+				$xmlProduct->addChild('title', \strip_tags($product->name));
 			} elseif (!empty($product->description_short)) {
-				$xmlProduct->addChild('title', strip_tags($product->description_short));
+				$xmlProduct->addChild('title', \strip_tags($product->description_short));
 			} elseif (!empty($product->description)) {
-				$xmlProduct->addChild('title', strip_tags($product->description));
+				$xmlProduct->addChild('title', \strip_tags($product->description));
 			}
 
 			$xmlProduct->addChild('link', $product->getLink($this->context));
 			$xmlProduct->addChild('price', $product->getPrice());
 
 			if (!empty($product->meta_description)) {
-				$xmlProduct->addChild('description', strip_tags($product->meta_description));
+				$xmlProduct->addChild('description', \strip_tags($product->meta_description));
 			} elseif (!empty($product->description_short)) {
-				$xmlProduct->addChild('description', strip_tags($product->description_short));
+				$xmlProduct->addChild('description', \strip_tags($product->description_short));
 			} elseif (!empty($product->description)) {
-				$xmlProduct->addChild('description', strip_tags($product->description));
+				$xmlProduct->addChild('description', \strip_tags($product->description));
 			}
 
 			$xmlCategories = $xmlProduct->addChild('categories');
 			foreach ($product->getCategories() as $category_id) {
 				$category = new \Category($category_id, $id_lang);
-				$xmlCategories->addChild('category', strip_tags($category->name));
+				$xmlCategories->addChild('category', \strip_tags($category->name));
 			}
 
 			$xmlProduct->addChild('image_link', $this->getImageLink($product));
 
 			if (!empty($product->manufacturer_name) && 'Coins of Nakamoto' !== $product->manufacturer_name) {
-				$xmlProduct->addChild('brand', strip_tags($product->manufacturer_name));
+				$xmlProduct->addChild('brand', \strip_tags($product->manufacturer_name));
 			}
 		}
 

@@ -1,6 +1,7 @@
 {
   "name": "bitcoinmitchell/cryptwerk-plugin",
   "description": "CryptWerk feed plugin for PrestaShop",
+  "license": "MIT",
   "type": "prestashop-module",
   "keywords": [
     "prestashop",
@@ -11,21 +12,34 @@
     "cryptwerk"
   ],
   "homepage": "https://github.com/bitcoinmitchell/cryptwerk-plugin",
-  "license": "MIT",
   "support": {
     "issues": "https://github.com/bitcoinmitchell/cryptwerk-plugin/issues",
     "source": "https://github.com/bitcoinmitchell/cryptwerk-plugin"
   },
-  "minimum-stability": "stable",
   "require": {
-    "php": ">=7.3.0",
+    "php": ">=8.0",
     "ext-intl": "*",
     "ext-mbstring": "*",
     "ext-simplexml": "*"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-master"
+    "ergebnis/composer-normalize": "^2.43",
+    "roave/security-advisories": "dev-latest",
+    "symfony/debug-bundle": "~5.4.40",
+    "symfony/var-dumper": "~5.4.43"
   },
+  "replace": {
+    "symfony/polyfill-mbstring": "*",
+    "symfony/polyfill-php54": "*",
+    "symfony/polyfill-php55": "^1.10",
+    "symfony/polyfill-php56": "*",
+    "symfony/polyfill-php70": "*",
+    "symfony/polyfill-php71": "*",
+    "symfony/polyfill-php72": "*",
+    "symfony/polyfill-php73": "*",
+    "symfony/polyfill-php74": "*"
+  },
+  "minimum-stability": "stable",
   "autoload": {
     "psr-4": {
       "CryptWerk\\": "src/"
@@ -36,6 +50,13 @@
     "exclude-from-classmap": []
   },
   "config": {
+    "allow-plugins": {
+      "ergebnis/composer-normalize": true,
+      "php-http/discovery": true
+    },
+    "platform": {
+      "php": "8.0"
+    },
     "preferred-install": "dist",
     "prepend-autoloader": false,
     "sort-packages": true

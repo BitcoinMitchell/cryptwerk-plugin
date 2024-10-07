@@ -2,7 +2,6 @@
 
 namespace CryptWerk\Controller\Admin\Improve\Catalog;
 
-use CryptWerk;
 use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
 use PrestaShopBundle\Security\Annotation\AdminSecurity;
 use PrestaShopBundle\Security\Annotation\ModuleActivated;

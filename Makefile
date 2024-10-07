@@ -18,7 +18,7 @@ deps: ## Download and make all dependencies
 	@cd "$(MODULE_FOLDER)/$(MODULE)" \
 		&& composer dump-autoload -o --no-dev
 
-build: deps ## Build the bastard binary file
+build: deps ## Build the cryptwerk binary file
 	# Removing the old ZIP if present
 	@rm -f $(MODULE_OUT)
 
@@ -35,6 +35,22 @@ build: deps ## Build the bastard binary file
 	@cd $(MODULE_FOLDER) \
 		&& zip -r $(ZIP_NAME) $(MODULE) \
 		&& mv $(ZIP_NAME) "../$(BUILD_FOLDER)"
+
+update: ## Update all dependencies (including development)
+	# Upgrading all root dependencies
+	@composer update
+
+	# Upgrading all module dependencies
+	@cd "$(MODULE_FOLDER)/$(MODULE)" \
+		&& composer update
+
+upgrade: ## Upgrade all dependencies (including development)
+	# Upgrading all root dependencies
+	@composer upgrade -W
+
+	# Upgrading all module dependencies
+	@cd "$(MODULE_FOLDER)/$(MODULE)" \
+		&& composer upgrade -W
 
 clean: ## Remove previous builds
 	# Removing the ZIP
