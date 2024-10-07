@@ -1,6 +1,6 @@
 <?php
 
-$finder = PhpCsFixer\Finder::create()
+$finder = (new PhpCsFixer\Finder)
 	->in([__DIR__ . '/modules/cryptwerk'])
 	->exclude('vendor');
 
@@ -16,6 +16,7 @@ return (new PhpCsFixer\Config())
 		'concat_space'                 => false,
 		'fopen_flags'                  => false,
 		'native_function_invocation'   => false,
+		'native_constant_invocation'   => false,
 		'phpdoc_summary'               => false,
 		'protected_to_private'         => false,
 		'psr_autoloading'              => false,

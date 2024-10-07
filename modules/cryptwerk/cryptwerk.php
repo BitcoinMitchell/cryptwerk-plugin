@@ -29,9 +29,9 @@ class CryptWerk extends \Module
 	{
 		$this->name                   = 'cryptwerk';
 		$this->tab                    = 'administration';
-		$this->version                = '0.3.5';
+		$this->version                = '0.4.0';
 		$this->author                 = 'BitcoinMitchell';
-		$this->ps_versions_compliancy = ['min' => '1.7.7', 'max' => _PS_VERSION_];
+		$this->ps_versions_compliancy = ['min' => '8.0.0', 'max' => _PS_VERSION_];
 
 		parent::__construct();
 
