@@ -31,7 +31,7 @@ services:
     expose:
       - '8080'
       - '8443'
-    image: 'bitnami/prestashop:8.0.4'
+    image: 'bitnami/prestashop:8.1.7'
     links:
       - mariadb
       - btcpayserver
