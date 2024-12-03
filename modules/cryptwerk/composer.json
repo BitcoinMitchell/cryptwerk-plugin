@@ -26,7 +26,7 @@
     "ergebnis/composer-normalize": "^2.43",
     "roave/security-advisories": "dev-latest",
     "symfony/debug-bundle": "~5.4.40",
-    "symfony/var-dumper": "~5.4.43"
+    "symfony/var-dumper": "~6.4.0"
   },
   "replace": {
     "symfony/polyfill-mbstring": "*",
