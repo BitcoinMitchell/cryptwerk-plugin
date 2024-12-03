@@ -25,7 +25,7 @@
   "require-dev": {
     "ergebnis/composer-normalize": "^2.43",
     "roave/security-advisories": "dev-latest",
-    "symfony/debug-bundle": "~5.4.40",
+    "symfony/debug-bundle": "~7.2.0",
     "symfony/var-dumper": "~5.4.43"
   },
   "replace": {
