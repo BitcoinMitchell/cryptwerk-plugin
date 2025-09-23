@@ -17,7 +17,7 @@
     "source": "https://github.com/bitcoinmitchell/cryptwerk-plugin"
   },
   "require": {
-    "php": ">=8.0",
+    "php": "^8.1",
     "ext-PDO": "*",
     "ext-bcmath": "*",
     "ext-curl": "*",
@@ -30,28 +30,28 @@
     "ext-mbstring": "*",
     "ext-simplexml": "*",
     "ext-zip": "*",
-    "composer/installers": "^1.12.0"
+    "composer/installers": "^2.3"
   },
   "require-dev": {
-    "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
-    "ergebnis/composer-normalize": "^2.43.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.1.2",
+    "ergebnis/composer-normalize": "^2.48.2",
     "ezyang/htmlpurifier": "dev-master as 4.17.0",
-    "friendsofphp/php-cs-fixer": "^3.4.0",
-    "lcobucci/jwt": "dev-3.4.6-patch as 3.4.6",
+    "friendsofphp/php-cs-fixer": "^3.87.2",
+    "lcobucci/jwt": "^5.3",
     "php-parallel-lint/php-console-highlighter": "^1.0",
     "php-parallel-lint/php-parallel-lint": "^1.4.0",
-    "phpoffice/phpspreadsheet": "^1.29.1",
+    "phpoffice/phpspreadsheet": "^1.30.0",
     "prestashop/autoindex": "^2.1",
     "prestashop/php-dev-tools": "^5",
-    "prestashop/prestashop": "^8.1.7",
+    "prestashop/prestashop": "^9.0.0",
     "roave/security-advisories": "dev-latest",
-    "slevomat/coding-standard": "^8.15.0",
-    "squizlabs/php_codesniffer": "^3.10.2"
+    "slevomat/coding-standard": "^8.22.1",
+    "squizlabs/php_codesniffer": "^3.13.4"
   },
   "replace": {
     "prestashop/blockreassurance": "^5.1.4",
     "prestashop/blockwishlist": "^3",
-    "prestashop/classic": "^2.0.0-beta",
+    "prestashop/classic": "^3",
     "prestashop/contactform": "^4.3.0",
     "prestashop/dashactivity": "^2",
     "prestashop/dashgoals": "^2",
@@ -61,32 +61,34 @@
     "prestashop/graphnvd3": "^2",
     "prestashop/gridhtml": "^2",
     "prestashop/gsitemap": "^4",
+    "prestashop/hummingbird": "^1",
     "prestashop/pagesnotfound": "^2",
-    "prestashop/productcomments": "^7.0",
+    "prestashop/productcomments": "^7",
+    "prestashop/ps_apiresources": "^0.1",
     "prestashop/ps_banner": "^2",
     "prestashop/ps_bestsellers": "^1.0",
     "prestashop/ps_brandlist": "^1.0",
     "prestashop/ps_cashondelivery": "^2.0",
     "prestashop/ps_categoryproducts": "^1.0",
-    "prestashop/ps_categorytree": "^2",
+    "prestashop/ps_categorytree": "^3",
     "prestashop/ps_checkpayment": "^2",
-    "prestashop/ps_contactinfo": "^3.2",
+    "prestashop/ps_contactinfo": ">3.3.2",
     "prestashop/ps_crossselling": "^2.0",
     "prestashop/ps_currencyselector": "^2",
     "prestashop/ps_customeraccountlinks": "^3",
     "prestashop/ps_customersignin": "^2",
     "prestashop/ps_customtext": "^4",
     "prestashop/ps_dataprivacy": "^2.0",
-    "prestashop/ps_distributionapiclient": "^1.0.1",
+    "prestashop/ps_distributionapiclient": "^2",
     "prestashop/ps_emailalerts": "^3.0",
     "prestashop/ps_emailsubscription": "^2.7.0",
-    "prestashop/ps_facetedsearch": "^3.7.1",
+    "prestashop/ps_facetedsearch": "^4",
     "prestashop/ps_faviconnotificationbo": "^2",
     "prestashop/ps_featuredproducts": "^2",
     "prestashop/ps_googleanalytics": "^5.0",
     "prestashop/ps_imageslider": "^3",
     "prestashop/ps_languageselector": "^2",
-    "prestashop/ps_linklist": "^6",
+    "prestashop/ps_linklist": "^7",
     "prestashop/ps_mainmenu": "^2",
     "prestashop/ps_newproducts": "^1.0",
     "prestashop/ps_searchbar": "^2",
@@ -127,12 +129,6 @@
     "symfony/polyfill-php73": "*",
     "symfony/polyfill-php74": "*"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/PrestaShop/jwt"
-    }
-  ],
   "minimum-stability": "dev",
   "prefer-stable": true,
   "autoload": {
@@ -146,7 +142,6 @@
   "config": {
     "allow-plugins": {
       "composer/installers": true,
-      "composer/package-versions-deprecated": true,
       "dealerdirect/phpcodesniffer-composer-installer": true,
       "ergebnis/composer-normalize": true
     },

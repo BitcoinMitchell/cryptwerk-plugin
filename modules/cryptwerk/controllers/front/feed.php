@@ -3,7 +3,7 @@
 use CryptWerk\Factory;
 
 /** @noinspection AutoloadingIssuesInspection */
-class CryptWerkFeedModuleFrontController extends \ModuleFrontController
+class CryptWerkFeedModuleFrontController extends ModuleFrontController
 {
 	/**
 	 * Enable SSL only.

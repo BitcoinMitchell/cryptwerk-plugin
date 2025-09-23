@@ -30,6 +30,7 @@ class Factory
 
 			$product = new \Product($item['id_product'], true, $id_lang, $id_shop);
 
+			/** @var \SimpleXMLElement $xmlProduct */
 			$xmlProduct = $xml->addChild('product');
 			$xmlProduct->addChild('id', $product->id);
 
@@ -54,6 +55,7 @@ class Factory
 				$xmlProduct->addChild('description', \strip_tags($product->description));
 			}
 
+			/** @var \SimpleXMLElement $xmlCategories */
 			$xmlCategories = $xmlProduct->addChild('categories');
 			foreach ($product->getCategories() as $category_id) {
 				$category = new \Category($category_id, $id_lang);
