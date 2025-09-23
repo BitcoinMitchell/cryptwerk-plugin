@@ -16,8 +16,8 @@ This is a CryptWerk plugin for PrestaShop. It converts your available products i
 Please ensure that you meet the following requirements before installing this plugin.
 
 + You have a [CryptWerk account](https://cryptwerk.com/id/register/).
-+ You are using PHP 7.3 or higher.
-+ Your PrestaShop is version 1.7.7.0 or higher.
++ You are using PHP 8.1 or higher.
++ Your PrestaShop is version 9.0.0 or higher.
 + The intl, mbstring and simplexml PHP extensions are available.
 
 ## Usage

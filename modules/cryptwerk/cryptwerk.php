@@ -1,5 +1,7 @@
 <?php
 
+use CryptWerk\Constants;
+
 if (!defined('_PS_VERSION_')) {
 	exit;
 }
@@ -11,7 +13,7 @@ if (!file_exists(__DIR__ . '/vendor/autoload.php')) {
 require_once __DIR__ . '/vendor/autoload.php';
 
 /** @noinspection AutoloadingIssuesInspection */
-class CryptWerk extends \Module
+class CryptWerk extends Module
 {
 	public $tabs = [
 		[
@@ -29,15 +31,45 @@ class CryptWerk extends \Module
 	{
 		$this->name                   = 'cryptwerk';
 		$this->tab                    = 'administration';
-		$this->version                = '0.4.0';
+		$this->version                = '0.5.0';
 		$this->author                 = 'BitcoinMitchell';
-		$this->ps_versions_compliancy = ['min' => '8.0.0', 'max' => _PS_VERSION_];
+		$this->ps_versions_compliancy = ['min' => Constants::MINIMUM_PS_VERSION, 'max' => _PS_VERSION_];
+		$this->bootstrap              = true;
 
 		parent::__construct();
 
 		$this->displayName      = $this->trans('CryptWerk', [], 'Modules.CryptWerk.Admin');
 		$this->description      = $this->trans('Converts your products into a valid CryptWerk feed.', [], 'Modules.CryptWerk.Front');
 		$this->confirmUninstall = $this->trans('Are you sure you want to delete this module?', [], 'Modules.CryptWerk.Front');
+	}
+
+	public function install(): bool
+	{
+		if (!parent::install()) {
+			return false;
+		}
+
+		if (version_compare(\PHP_VERSION, Constants::MINIMUM_PHP_VERSION, '<')) {
+			$this->_errors[] = $this->trans([
+				'key'        => sprintf('PHP version is too low. Expected %s or higher, received %s.', Constants::MINIMUM_PHP_VERSION, \PHP_VERSION),
+				'parameters' => [],
+				'domain'     => 'Admin.Modules.Notification',
+			]);
+
+			return false;
+		}
+
+		if (version_compare(_PS_VERSION_, Constants::MINIMUM_PS_VERSION, '<')) {
+			$this->_errors[] = $this->trans([
+				'key'        => sprintf('PrestaShop version is too low. Expected %s or higher, received %s.', Constants::MINIMUM_PS_VERSION, _PS_VERSION_),
+				'parameters' => [],
+				'domain'     => 'Admin.Modules.Notification',
+			]);
+
+			return false;
+		}
+
+		return true;
 	}
 
 	public function isUsingNewTranslationSystem(): bool
