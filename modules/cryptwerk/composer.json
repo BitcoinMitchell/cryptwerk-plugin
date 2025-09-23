@@ -54,9 +54,6 @@
       "ergebnis/composer-normalize": true,
       "php-http/discovery": true
     },
-    "platform": {
-      "php": "8.0"
-    },
     "preferred-install": "dist",
     "prepend-autoloader": false,
     "sort-packages": true
