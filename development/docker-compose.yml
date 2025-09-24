@@ -1,0 +1,43 @@
+name: cryptwerk
+
+services:
+  # Prestashop service
+  prestashop:
+    image: prestashop/prestashop-flashlight:${PS_VERSION:-9.0.0-nginx}
+    env_file:
+      - prestashop/prestashop.env
+    environment:
+      NGROK_TUNNEL_AUTO_DETECT: http://ngrok:4040
+    depends_on:
+      ngrok:
+        condition: service_started
+    ports:
+      - "8000:80" # Host:Container
+
+  # Database service (MariaDB)
+  mysql:
+    image: mariadb:lts
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: prestashop
+      MYSQL_PASSWORD: prestashop
+      MYSQL_ROOT_PASSWORD: prestashop
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: prestashop
+    ports:
+      - "3306:3306"
+
+  # Ngrok service (for tunneling)
+  ngrok:
+    image: ngrok/ngrok:alpine
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:4040 || exit 1"]
+      interval: 10s
+      timeout: 2s
+      start_period: 10s
+    volumes:
+      - ./ngrok/ngrok.yml:/var/lib/ngrok/ngrok.yml
+    ports:
+      - "4040:4040"

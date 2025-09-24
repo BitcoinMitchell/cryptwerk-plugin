@@ -93,9 +93,6 @@ class AddressFormat extends AddressFormatCore
 class AdminAccessController extends AdminAccessControllerCore
 {
 }
-class AdminAttributesGroupsController extends AdminAttributesGroupsControllerCore
-{
-}
 class AdminCarriersController extends AdminCarriersControllerCore
 {
 }
@@ -103,9 +100,6 @@ class AdminCarrierWizardController extends AdminCarrierWizardControllerCore
 {
 }
 class AdminCartRulesController extends AdminCartRulesControllerCore
-{
-}
-class AdminCartsController extends AdminCartsControllerCore
 {
 }
 class AdminController extends AdminControllerCore
@@ -120,28 +114,10 @@ class AdminCustomerThreadsController extends AdminCustomerThreadsControllerCore
 class AdminDashboardController extends AdminDashboardControllerCore
 {
 }
-class AdminFeaturesController extends AdminFeaturesControllerCore
-{
-}
-class AdminGendersController extends AdminGendersControllerCore
-{
-}
 class AdminGroupsController extends AdminGroupsControllerCore
 {
 }
-class AdminImagesController extends AdminImagesControllerCore
-{
-}
 class AdminImportController extends AdminImportControllerCore
-{
-}
-class AdminLegacyLayoutController extends AdminLegacyLayoutControllerCore
-{
-}
-class AdminLoginController extends AdminLoginControllerCore
-{
-}
-class AdminModulesController extends AdminModulesControllerCore
 {
 }
 class AdminModulesPositionsController extends AdminModulesPositionsControllerCore
@@ -153,13 +129,7 @@ class AdminNotFoundController extends AdminNotFoundControllerCore
 class AdminPdfController extends AdminPdfControllerCore
 {
 }
-class AdminProductsController extends AdminProductsControllerCore
-{
-}
 class AdminQuickAccessesController extends AdminQuickAccessesControllerCore
-{
-}
-class AdminRequestSqlController extends AdminRequestSqlControllerCore
 {
 }
 class AdminReturnController extends AdminReturnControllerCore
@@ -183,19 +153,10 @@ class AdminShopUrlController extends AdminShopUrlControllerCore
 class AdminSpecificPriceRuleController extends AdminSpecificPriceRuleControllerCore
 {
 }
-class AdminStatesController extends AdminStatesControllerCore
-{
-}
 class AdminStatsController extends AdminStatsControllerCore
 {
 }
-class AdminStatusesController extends AdminStatusesControllerCore
-{
-}
 class AdminStoresController extends AdminStoresControllerCore
-{
-}
-class AdminSuppliersController extends AdminSuppliersControllerCore
 {
 }
 class AdminTabsController extends AdminTabsControllerCore
@@ -412,9 +373,6 @@ class FeatureValue extends FeatureValueCore
 {
 }
 class FileLogger extends FileLoggerCore
-{
-}
-class FileUploader extends FileUploaderCore
 {
 }
 class FormField extends FormFieldCore
@@ -892,11 +850,6 @@ class WebserviceSpecificManagementSearch extends WebserviceSpecificManagementSea
 {
 }
 class Zone extends ZoneCore
-{
-}
-
-/*              Class aliases              */
-class Autoload extends PrestaShopAutoload
 {
 }
 class Backup extends PrestaShopBackup
