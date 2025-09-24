@@ -2,41 +2,51 @@ name: "Release"
 
 on:
   push:
-    tags: [ 'v*' ] # Push events to matching v*, i.e. v1.0, v20.15.10
+    tags: [ 'v*' ] # Runs only on version tags, e.g. v1.0, v2.5.3
 
 jobs:
-  linting:
-    name: "Release a new ZIP"
+  release:
+    name: "Build & Publish Release"
     runs-on: "ubuntu-latest"
+
     steps:
-      - name: "Checkout"
+      # 1. Checkout repository
+      - name: "Checkout repository"
         uses: "actions/checkout@v5"
-      - name: "Setup PHP, with composer and extensions"
-        uses: "shivammathur/setup-php@v2" # https://github.com/shivammathur/setup-php
+
+      # 2. Setup PHP & Composer
+      - name: "Setup PHP with Composer and extensions"
+        uses: "shivammathur/setup-php@v2"
         with:
           php-version: "8.1"
           extensions: "mbstring, xml, ctype, iconv, intl, gd"
-          tools: "composer:v2"
-      - name: "Get composer cache directory"
+          tools: "composer:v2, symfony-cli"
+
+      # 3. Cache Composer dependencies
+      - name: "Get Composer cache directory"
         id: "composer-cache"
         run: 'echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT'
-      - name: "Cache composer dependencies"
+
+      - name: "Cache Composer dependencies"
         uses: "actions/cache@v4"
         with:
           path: "${{ steps.composer-cache.outputs.dir }}"
           key: "${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}"
           restore-keys: "${{ runner.os }}-composer-"
-      - name: "Validate composer"
-        run: "composer validate"
+
+      # 4. Validate & install dependencies
+      - name: "Validate Composer configuration"
+        run: "symfony composer validate --no-interaction"
+
       - name: "Install Composer dependencies"
-        run: "composer install --prefer-dist --no-progress --optimize-autoloader"
+        run: "symfony composer install --prefer-dist --no-progress --optimize-autoloader --no-interaction"
 
-      # Zip the module
-      - name: "Make zip"
-        run: "make"
+      # 5. Build ZIP using Makefile
+      - name: "Build ZIP artifact"
+        run: "make build"
 
-      # Make a release from the tag and upload the zip
-      - name: "Create Release"
+      # 6. Create GitHub Release & upload ZIP
+      - name: "Create GitHub Release"
         id: "create_release"
         uses: "softprops/action-gh-release@v2"
         env:

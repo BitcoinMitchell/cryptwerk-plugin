@@ -8,30 +8,40 @@ jobs:
     runs-on: "ubuntu-latest"
     strategy:
       matrix:
-        php-versions: [  '8.1', '8.2' ]
+        php-versions: [ "8.1", "8.2" ]
+
     steps:
-      - name: "Checkout"
+      # 1. Checkout repository
+      - name: "Checkout repository"
         uses: "actions/checkout@v5"
-      - name: "Setup PHP, with composer and extensions"
-        uses: "shivammathur/setup-php@v2" # https://github.com/shivammathur/setup-php
+
+      # 2. Setup PHP & Composer (with Symfony CLI)
+      - name: "Setup PHP with Composer and extensions"
+        uses: "shivammathur/setup-php@v2"
         with:
           php-version: "${{ matrix.php-versions }}"
           extensions: "mbstring, xml, ctype, iconv, intl, gd"
-          tools: "composer:v2"
-      - name: "Get composer cache directory"
+          tools: "composer:v2, symfony-cli"
+
+      # 3. Cache Composer dependencies
+      - name: "Get Composer cache directory"
         id: "composer-cache"
-        run: 'echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT'
-      - name: "Cache composer dependencies"
+        run: 'echo "dir=$(symfony composer config cache-files-dir)" >> $GITHUB_OUTPUT'
+
+      - name: "Cache Composer dependencies"
         uses: "actions/cache@v4"
         with:
           path: "${{ steps.composer-cache.outputs.dir }}"
           key: "${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}"
           restore-keys: "${{ runner.os }}-composer-"
-      - name: "Validate composer"
-        run: "composer validate"
-      - name: "Install Composer dependencies"
-        run: "composer install --prefer-dist --no-progress --optimize-autoloader"
 
-      # Ensure our code looks proper
-      - name: "Lint the code"
+      # 4. Validate & install dependencies
+      - name: "Validate Composer configuration"
+        run: "symfony composer validate --no-interaction"
+
+      - name: "Install Composer dependencies"
+        run: "symfony composer install --prefer-dist --no-progress --optimize-autoloader --no-interaction"
+
+      # 5. Run linter
+      - name: "Lint codebase"
         run: "make lint"

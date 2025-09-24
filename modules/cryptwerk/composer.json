@@ -23,7 +23,7 @@
     "ext-simplexml": "*"
   },
   "require-dev": {
-    "ergebnis/composer-normalize": "^2.43",
+    "ergebnis/composer-normalize": "^2.48.2",
     "roave/security-advisories": "dev-latest",
     "symfony/debug-bundle": "~5.4.40",
     "symfony/var-dumper": "~5.4.43"
