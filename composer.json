@@ -45,8 +45,8 @@
     "prestashop/php-dev-tools": "^5",
     "prestashop/prestashop": "^9.0.0",
     "roave/security-advisories": "dev-latest",
-    "slevomat/coding-standard": "^8.22.1",
-    "squizlabs/php_codesniffer": "^3.13.4"
+    "slevomat/coding-standard": "^8.23",
+    "squizlabs/php_codesniffer": "^4.0"
   },
   "replace": {
     "prestashop/blockreassurance": "^5.1.4",
@@ -144,6 +144,9 @@
       "composer/installers": true,
       "dealerdirect/phpcodesniffer-composer-installer": true,
       "ergebnis/composer-normalize": true
+    },
+    "platform": {
+      "php": "8.1"
     },
     "preferred-install": "dist",
     "prepend-autoloader": false,
