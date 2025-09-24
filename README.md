@@ -38,6 +38,13 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 Contributors looking to help out, before opening a pull request, please [create an issue](https://github.com/bitcoinmitchell/cryptwerk-plugin/issues/new/choose)
 to get early feedback, discuss the best ways to tackle the problem and to ensure there is no work duplication.
 
+### Development
+
+If you want to work on the plugin, it is recommended to install/use the following:
+- [Symfony CLI](https://symfony.com/doc/current/setup/symfony_cli.html) is required for Makefile and makes life easier.
+- [PrestaShop Flashlight](https://github.com/PrestaShop/prestashop-flashlight)
+  - This is a newer, maintained version of [PrestaShop Kickstarter](https://github.com/PrestaShopCorp/docker-compose-kickstarter).
+
 ## PrestaShop Support
 
 PrestaShop support can be found through its official channels.
