@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b5d443e20986bed0ca8414a5e6a5cc6",
+    "content-hash": "02aa7adeda7ab244207037c2ab7fcdbe",
     "packages": [
         {
             "name": "composer/installers",
@@ -5863,27 +5863,28 @@
         },
         {
             "name": "prestashop/autoindex",
-            "version": "v2.1.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PrestaShopCorp/autoindex.git",
-                "reference": "235f3ec115432ffc32d582198ea498467b3946d0"
+                "reference": "0365e41536b32f227605aae1160efc88a150ec8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PrestaShopCorp/autoindex/zipball/235f3ec115432ffc32d582198ea498467b3946d0",
-                "reference": "235f3ec115432ffc32d582198ea498467b3946d0",
+                "url": "https://api.github.com/repos/PrestaShopCorp/autoindex/zipball/0365e41536b32f227605aae1160efc88a150ec8d",
+                "reference": "0365e41536b32f227605aae1160efc88a150ec8d",
                 "shasum": ""
             },
             "require": {
                 "nikic/php-parser": "^4.10",
-                "php": "^8.0 || ^7.2",
+                "php": "^7.4|^8.0",
                 "symfony/console": "^3.4 || ~4.0 || ~5.0 || ~6.0",
                 "symfony/finder": "^3.4 || ~4.0 || ~5.0 || ~6.0"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.12.83",
-                "prestashop/php-dev-tools": "1.*"
+                "friendsofphp/php-cs-fixer": "^3.4",
+                "phpstan/phpstan": "^2.1",
+                "prestashop/php-dev-tools": "^5"
             },
             "bin": [
                 "bin/autoindex"
@@ -5907,9 +5908,9 @@
             "description": "Automatically add an 'index.php' in all the current or specified directories and all sub-directories.",
             "homepage": "https://github.com/PrestaShopCorp/autoindex",
             "support": {
-                "source": "https://github.com/PrestaShopCorp/autoindex/tree/v2.1.0"
+                "source": "https://github.com/PrestaShopCorp/autoindex/tree/v3.0.0"
             },
-            "time": "2022-10-10T08:35:00+00:00"
+            "time": "2026-05-14T11:04:39+00:00"
         },
         {
             "name": "prestashop/autoload",
@@ -9224,16 +9225,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v6.4.43",
+            "version": "v6.4.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "3b643aa587acbc42f967a429af088a56ed8f046d"
+                "reference": "60e3944c4859c487aa6ea2f0f7754917f70f7524"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/3b643aa587acbc42f967a429af088a56ed8f046d",
-                "reference": "3b643aa587acbc42f967a429af088a56ed8f046d",
+                "url": "https://api.github.com/repos/symfony/console/zipball/60e3944c4859c487aa6ea2f0f7754917f70f7524",
+                "reference": "60e3944c4859c487aa6ea2f0f7754917f70f7524",
                 "shasum": ""
             },
             "require": {
@@ -9298,7 +9299,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v6.4.43"
+                "source": "https://github.com/symfony/console/tree/v6.4.44"
             },
             "funding": [
                 {
@@ -9318,7 +9319,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-26T14:44:19+00:00"
+            "time": "2026-08-21T07:42:12+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -10339,16 +10340,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v6.4.42",
+            "version": "v6.4.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "0b73dac42493acbadbba644207a715b254e9b029"
+                "reference": "211b28d13d044dacdc00c1629a3bbcff27dc793a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/0b73dac42493acbadbba644207a715b254e9b029",
-                "reference": "0b73dac42493acbadbba644207a715b254e9b029",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/211b28d13d044dacdc00c1629a3bbcff27dc793a",
+                "reference": "211b28d13d044dacdc00c1629a3bbcff27dc793a",
                 "shasum": ""
             },
             "require": {
@@ -10383,7 +10384,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v6.4.42"
+                "source": "https://github.com/symfony/finder/tree/v6.4.44"
             },
             "funding": [
                 {
@@ -10403,7 +10404,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-26T15:18:24+00:00"
+            "time": "2026-08-21T10:00:03+00:00"
         },
         {
             "name": "symfony/form",
@@ -12125,16 +12126,16 @@
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
-            "version": "v1.38.0",
+            "version": "v1.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
-                "reference": "2d446c214bdbe5b71bde5011b060a05fece3ae6b"
+                "reference": "aa20edea75bd9c48cfecc8360922e5a6e5c44502"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/2d446c214bdbe5b71bde5011b060a05fece3ae6b",
-                "reference": "2d446c214bdbe5b71bde5011b060a05fece3ae6b",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/aa20edea75bd9c48cfecc8360922e5a6e5c44502",
+                "reference": "aa20edea75bd9c48cfecc8360922e5a6e5c44502",
                 "shasum": ""
             },
             "require": {
@@ -12186,7 +12187,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.38.0"
+                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.42.0"
             },
             "funding": [
                 {
@@ -12206,7 +12207,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-25T13:48:31+00:00"
+            "time": "2026-08-07T06:33:24+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
