@@ -2,21 +2,20 @@
 
 namespace CryptWerk\Controller\Admin\Improve\Catalog;
 
-use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
-use PrestaShopBundle\Security\Annotation\AdminSecurity;
-use PrestaShopBundle\Security\Annotation\ModuleActivated;
+use Module;
+use PrestaShopBundle\Controller\Admin\PrestaShopAdminController;
+use PrestaShopBundle\Security\Attribute\AdminSecurity;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @ModuleActivated(moduleName="cryptwerk", redirectRoute="admin_module_manage")
- */
-class ConfigureController extends FrameworkBundleAdminController
+class ConfigureController extends PrestaShopAdminController
 {
-	/**
-	 * @AdminSecurity("is_granted('read', request.get('_legacy_controller'))", message="Access denied.")
-	 */
+	#[AdminSecurity("is_granted('read', request.get('_legacy_controller'))", message: 'Access denied.')]
 	public function configureAction(): Response
 	{
-		return $this->redirect($this->getContext()->link->getModuleLink('cryptwerk', 'feed'));
+		if (!Module::isEnabled('cryptwerk')) {
+			return $this->redirectToRoute('admin_module_manage');
+		}
+
+		return $this->redirect(\Context::getContext()->link->getModuleLink('cryptwerk', 'feed'));
 	}
 }

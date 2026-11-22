@@ -4,10 +4,7 @@ namespace CryptWerk;
 
 class Factory
 {
-	/**
-	 * @var \Context
-	 */
-	private $context;
+	private \Context $context;
 
 	public function __construct()
 	{
@@ -32,40 +29,40 @@ class Factory
 
 			/** @var \SimpleXMLElement $xmlProduct */
 			$xmlProduct = $xml->addChild('product');
-			$xmlProduct->addChild('id', $product->id);
+			$xmlProduct->addChild('id', (string) $product->id);
 
 			if (!empty($product->meta_title)) {
-				$xmlProduct->addChild('title', \strip_tags($product->meta_title));
+				$xmlProduct->addChild('title', \strip_tags((string) $product->meta_title));
 			} elseif (!empty($product->name)) {
-				$xmlProduct->addChild('title', \strip_tags($product->name));
+				$xmlProduct->addChild('title', \strip_tags((string) $product->name));
 			} elseif (!empty($product->description_short)) {
-				$xmlProduct->addChild('title', \strip_tags($product->description_short));
+				$xmlProduct->addChild('title', \strip_tags((string) $product->description_short));
 			} elseif (!empty($product->description)) {
-				$xmlProduct->addChild('title', \strip_tags($product->description));
+				$xmlProduct->addChild('title', \strip_tags((string) $product->description));
 			}
 
-			$xmlProduct->addChild('link', $product->getLink($this->context));
-			$xmlProduct->addChild('price', $product->getPrice());
+			$xmlProduct->addChild('link', (string) $product->getLink($this->context));
+			$xmlProduct->addChild('price', (string) $product->getPrice());
 
 			if (!empty($product->meta_description)) {
-				$xmlProduct->addChild('description', \strip_tags($product->meta_description));
+				$xmlProduct->addChild('description', \strip_tags((string) $product->meta_description));
 			} elseif (!empty($product->description_short)) {
-				$xmlProduct->addChild('description', \strip_tags($product->description_short));
+				$xmlProduct->addChild('description', \strip_tags((string) $product->description_short));
 			} elseif (!empty($product->description)) {
-				$xmlProduct->addChild('description', \strip_tags($product->description));
+				$xmlProduct->addChild('description', \strip_tags((string) $product->description));
 			}
 
 			/** @var \SimpleXMLElement $xmlCategories */
 			$xmlCategories = $xmlProduct->addChild('categories');
 			foreach ($product->getCategories() as $category_id) {
 				$category = new \Category($category_id, $id_lang);
-				$xmlCategories->addChild('category', \strip_tags($category->name));
+				$xmlCategories->addChild('category', \strip_tags((string) $category->name));
 			}
 
 			$xmlProduct->addChild('image_link', $this->getImageLink($product));
 
-			if (!empty($product->manufacturer_name) && 'Coins of Nakamoto' !== $product->manufacturer_name) {
-				$xmlProduct->addChild('brand', \strip_tags($product->manufacturer_name));
+			if (!empty($product->manufacturer_name)) {
+				$xmlProduct->addChild('brand', \strip_tags((string) $product->manufacturer_name));
 			}
 		}
 
@@ -75,7 +72,12 @@ class Factory
 	private function getImageLink(\Product $product): string
 	{
 		$coverImage = \Product::getCover($product->id);
+		if (!\is_array($coverImage) || empty($coverImage['id_image'])) {
+			return '';
+		}
 
-		return $this->context->link->getImageLink($product->link_rewrite ?? $product->name, (int) $coverImage['id_image']);
+		$rewrite = $product->link_rewrite ?? $product->name;
+
+		return (string) $this->context->link->getImageLink((string) $rewrite, (int) $coverImage['id_image']);
 	}
 }

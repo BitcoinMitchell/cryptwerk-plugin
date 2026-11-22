@@ -1,43 +1,53 @@
 name: cryptwerk
 
 services:
-  # Prestashop service
   prestashop:
-    image: prestashop/prestashop-flashlight:${PS_VERSION:-9.0.0-nginx}
-    env_file:
-      - prestashop/prestashop.env
+    image: prestashop/prestashop-flashlight:${PS_VERSION:-9.2.1-8.4-fpm-bookworm-nginx}
+    env_file: [ prestashop/prestashop.env ]
     environment:
-      NGROK_TUNNEL_AUTO_DETECT: http://ngrok:4040
+      PS_DOMAIN: ${PS_DOMAIN:-localhost:8000}
+      INIT_SCRIPTS_DIR: /tmp/init-scripts
+      INIT_SCRIPTS_ON_RESTART: "true"
+    volumes:
+      - ./init-scripts:/tmp/init-scripts:ro
     depends_on:
-      ngrok:
+      mysql:
+        condition: service_healthy
+      mailpit:
         condition: service_started
-    ports:
-      - "8000:80" # Host:Container
+    ports: [ "8000:80" ]
 
-  # Database service (MariaDB)
+  mailpit:
+    image: axllent/mailpit:v1.27
+    # Host 8025 is often taken by other local Mailpit instances; UI on 8026.
+    ports:
+      - "8026:8025"
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+
   mysql:
     image: mariadb:lts
     environment:
-      MYSQL_HOST: mysql
       MYSQL_USER: prestashop
       MYSQL_PASSWORD: prestashop
       MYSQL_ROOT_PASSWORD: prestashop
-      MYSQL_PORT: 3306
       MYSQL_DATABASE: prestashop
-    ports:
-      - "3306:3306"
-
-  # Ngrok service (for tunneling)
-  ngrok:
-    image: ngrok/ngrok:alpine
-    env_file:
-      - .env
+    ports: [ "3306:3306" ]
+    volumes: [ "mysql_data:/var/lib/mysql" ]
     healthcheck:
-      test: ["CMD-SHELL", "curl -sf http://localhost:4040 || exit 1"]
-      interval: 10s
-      timeout: 2s
-      start_period: 10s
-    volumes:
-      - ./ngrok/ngrok.yml:/var/lib/ngrok/ngrok.yml
-    ports:
-      - "4040:4040"
+      test: [ "CMD-SHELL", "mariadb-admin ping -h localhost -pprestashop --silent" ]
+      interval: 5s
+      retries: 10
+      timeout: 3s
+
+  ngrok:
+    profiles: [ tunnel ]
+    image: ngrok/ngrok:latest
+    env_file: [ .env ]
+    ports: [ "4040:4040" ]
+    volumes: [ "./ngrok/ngrok.yml:/var/lib/ngrok/ngrok.yml" ]
+    command: [ "start", "--config", "/var/lib/ngrok/ngrok.yml", "prestashop" ]
+
+volumes:
+  mysql_data:

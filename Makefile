@@ -12,7 +12,8 @@ BLUE := \033[36m
 RESET := \033[0m
 
 # --- Targets ---
-.PHONY: all deps build bump update upgrade clean lint lint-fix help
+.PHONY: all deps install build bump update upgrade clean lint lint-fix \
+	dev-up dev-down dev-logs dev-tunnel dev-reset help
 
 all: build
 
@@ -21,6 +22,12 @@ deps: ## Install and prepare all dependencies
 	@cd "$(MODULE_PATH)" && symfony composer install
 	@echo "$(BLUE)==> Dumping autoloader...$(RESET)"
 	@cd "$(MODULE_PATH)" && symfony composer dump-autoload -o --no-dev
+
+install: ## Install root and module Composer dependencies
+	@echo "$(BLUE)==> Installing root dependencies...$(RESET)"
+	@symfony composer install
+	@echo "$(BLUE)==> Installing module dependencies...$(RESET)"
+	@cd "$(MODULE_PATH)" && symfony composer install
 
 build: deps ## Build the module and create ZIP
 	@echo "$(BLUE)==> Building module...$(RESET)"
@@ -66,6 +73,29 @@ lint-fix: ## Auto-fix linter issues
 	@symfony php ./vendor/bin/php-cs-fixer fix -v
 	@echo "$(BLUE)==> Running PHPCBF...$(RESET)"
 	@symfony php ./vendor/bin/phpcbf -p
+
+dev-up: install ## Start the local Docker stack (PrestaShop + Mailpit)
+	@cd development && docker compose up -d
+
+dev-down: ## Stop the local Docker stack
+	@cd development && docker compose --profile tunnel down
+
+dev-logs: ## Follow Docker logs
+	@cd development && docker compose logs -f
+
+dev-tunnel: ## Start stack with ngrok tunnel
+	@cd development && docker compose -f docker-compose.yml -f docker-compose.tunnel.yml --profile tunnel up -d --force-recreate prestashop ngrok
+	@echo "* Waiting for ngrok tunnel..."
+	@i=0; while [ $$i -lt 45 ]; do \
+		curl -sf http://127.0.0.1:4040/api/tunnels >/dev/null 2>&1 && break; \
+		i=$$((i+1)); sleep 1; \
+	done
+	@echo "* PrestaShop: $$(curl -sf http://127.0.0.1:4040/api/tunnels | python3 -c 'import json,sys; t=json.load(sys.stdin)["tunnels"]; print(next((x["public_url"] for x in t if x.get("proto")=="https"), t[0]["public_url"] if t else "(unavailable)"))')"
+	@echo "* Inspector:  http://localhost:4040"
+
+dev-reset: dev-down ## Wipe volumes and restart fresh
+	@cd development && docker compose --profile tunnel down -v
+	@$(MAKE) dev-up
 
 help: ## Show this help message
 	@echo "$(BLUE)Available targets:$(RESET)"

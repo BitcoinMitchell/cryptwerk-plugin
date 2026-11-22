@@ -7,8 +7,6 @@ class CryptWerkFeedModuleFrontController extends ModuleFrontController
 {
 	/**
 	 * Enable SSL only.
-	 *
-	 * @var bool
 	 */
 	public $ssl = true;
 
@@ -17,10 +15,7 @@ class CryptWerkFeedModuleFrontController extends ModuleFrontController
 	 */
 	public $module;
 
-	/**
-	 * @var Factory
-	 */
-	private $factory;
+	private Factory $factory;
 
 	public function __construct()
 	{

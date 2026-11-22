@@ -13,7 +13,6 @@ cryptwerk.zip
 # Ignore phpcs cache
 .phpcs-cache
 
-
 # Ignore developer specific stuff
 /development/.env
 /development/docker-compose.override.yml

@@ -31,7 +31,7 @@ class CryptWerk extends Module
 	{
 		$this->name                   = 'cryptwerk';
 		$this->tab                    = 'administration';
-		$this->version                = '0.5.0';
+		$this->version                = '0.6.0';
 		$this->author                 = 'BitcoinMitchell';
 		$this->ps_versions_compliancy = ['min' => Constants::MINIMUM_PS_VERSION, 'max' => _PS_VERSION_];
 		$this->bootstrap              = true;
@@ -50,21 +50,21 @@ class CryptWerk extends Module
 		}
 
 		if (version_compare(\PHP_VERSION, Constants::MINIMUM_PHP_VERSION, '<')) {
-			$this->_errors[] = $this->trans([
-				'key'        => sprintf('PHP version is too low. Expected %s or higher, received %s.', Constants::MINIMUM_PHP_VERSION, \PHP_VERSION),
-				'parameters' => [],
-				'domain'     => 'Admin.Modules.Notification',
-			]);
+			$this->_errors[] = $this->trans(
+				sprintf('PHP version is too low. Expected %s or higher, received %s.', Constants::MINIMUM_PHP_VERSION, \PHP_VERSION),
+				[],
+				'Admin.Modules.Notification'
+			);
 
 			return false;
 		}
 
 		if (version_compare(_PS_VERSION_, Constants::MINIMUM_PS_VERSION, '<')) {
-			$this->_errors[] = $this->trans([
-				'key'        => sprintf('PrestaShop version is too low. Expected %s or higher, received %s.', Constants::MINIMUM_PS_VERSION, _PS_VERSION_),
-				'parameters' => [],
-				'domain'     => 'Admin.Modules.Notification',
-			]);
+			$this->_errors[] = $this->trans(
+				sprintf('PrestaShop version is too low. Expected %s or higher, received %s.', Constants::MINIMUM_PS_VERSION, _PS_VERSION_),
+				[],
+				'Admin.Modules.Notification'
+			);
 
 			return false;
 		}
