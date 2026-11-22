@@ -23,6 +23,8 @@ return (new PhpCsFixer\Config())
 		'yoda_style'                   => true,
 	])
 	->setRiskyAllowed(true)
+	// PHP CS Fixer 3.95 supports syntax through 8.5; CI also lint-runs on 8.6.
+	->setUnsupportedPhpVersionAllowed(true)
 	->setUsingCache(true)
 	->setIndent("\t")
 	->setFinder($finder);
