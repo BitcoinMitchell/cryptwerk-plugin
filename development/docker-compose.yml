@@ -18,7 +18,7 @@ services:
     ports: [ "8000:80" ]
 
   mailpit:
-    image: axllent/mailpit:v1.27
+    image: axllent/mailpit:v1.34
     # Host 8025 is often taken by other local Mailpit instances; UI on 8026.
     ports:
       - "8026:8025"
