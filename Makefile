@@ -17,13 +17,13 @@ RESET := \033[0m
 
 all: build
 
-deps: ## Install and prepare all dependencies
-	@echo "$(BLUE)==> Installing dependencies...$(RESET)"
-	@cd "$(MODULE_PATH)" && symfony composer install
+deps: ## Install production module deps (no require-dev — keeps the zip under PS upload limits)
+	@echo "$(BLUE)==> Installing module dependencies (no-dev)...$(RESET)"
+	@cd "$(MODULE_PATH)" && symfony composer install --no-dev --prefer-dist --no-interaction
 	@echo "$(BLUE)==> Dumping autoloader...$(RESET)"
 	@cd "$(MODULE_PATH)" && symfony composer dump-autoload -o --no-dev
 
-install: ## Install root and module Composer dependencies
+install: ## Install root and module Composer dependencies (with require-dev)
 	@echo "$(BLUE)==> Installing root dependencies...$(RESET)"
 	@symfony composer install
 	@echo "$(BLUE)==> Installing module dependencies...$(RESET)"
@@ -35,7 +35,11 @@ build: deps ## Build the module and create ZIP
 	@mkdir -p "$(BUILD_FOLDER)"
 	@cp ./LICENSE "$(MODULE_PATH)"
 	@cp ./README.md "$(MODULE_PATH)"
-	@cd "$(MODULE_FOLDER)" && zip -r "$(ZIP_NAME)" "$(MODULE)" && mv "$(ZIP_NAME)" "../$(BUILD_FOLDER)"
+	@cd "$(MODULE_FOLDER)" && zip -r "$(ZIP_NAME)" "$(MODULE)" \
+		-x "$(MODULE)/vendor/bin/*" \
+		-x "$(MODULE)/.git/*" \
+		-x "$(MODULE)/tests/*" \
+		&& mv "$(ZIP_NAME)" "../$(BUILD_FOLDER)"
 	@echo "$(BLUE)==> Build complete: $(MODULE_OUT)$(RESET)"
 
 bump: ## Bump all PHP dependencies
